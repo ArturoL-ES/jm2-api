@@ -17,7 +17,8 @@ import org.springframework.test.context.ActiveProfiles;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 @RunWith(MockitoJUnitRunner.class)
 @ActiveProfiles(Profiles.DEVELOPMENT)

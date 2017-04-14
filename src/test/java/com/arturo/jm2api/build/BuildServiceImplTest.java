@@ -1,11 +1,8 @@
 package com.arturo.jm2api.build;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import java.util.Arrays;
-
 import com.arturo.jm2api.build.dto.BuildSearchFormDTO;
+import com.arturo.jm2api.common.Profiles;
+import com.arturo.jm2api.common.error.CustomException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,8 +15,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.arturo.jm2api.common.Profiles;
-import com.arturo.jm2api.common.error.CustomException;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 @RunWith(MockitoJUnitRunner.class)
 @ActiveProfiles(Profiles.DEVELOPMENT)

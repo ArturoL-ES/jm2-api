@@ -1,34 +1,19 @@
 package com.arturo.jm2api.build;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import com.arturo.jm2api.build.address.Address;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import com.arturo.jm2api.build.equipment.Equipment;
 import com.arturo.jm2api.build.feature.Feature;
 import com.arturo.jm2api.build.image.Image;
 import com.arturo.jm2api.build.state.State;
 import com.arturo.jm2api.build.type.Type;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Cacheable

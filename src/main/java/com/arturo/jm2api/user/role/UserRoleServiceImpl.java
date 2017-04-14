@@ -1,9 +1,8 @@
 package com.arturo.jm2api.user.role;
 
+import com.arturo.jm2api.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.arturo.jm2api.user.User;
 
 @Service
 public class UserRoleServiceImpl implements UserRoleService {

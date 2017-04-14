@@ -1,5 +1,6 @@
 package com.arturo.jm2api.config.development.security;
 
+import com.arturo.jm2api.common.Profiles;
 import com.arturo.jm2api.config.security.CustomAuthenticationEntryPoint;
 import com.arturo.jm2api.config.security.CustomAuthenticationFailureHandler;
 import com.arturo.jm2api.config.security.CustomAuthenticationSuccessHandler;
@@ -20,8 +21,6 @@ import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
-import com.arturo.jm2api.common.Profiles;
-
 @Configuration
 @EnableWebSecurity
 @Profile({Profiles.DEVELOPMENT})
@@ -37,11 +36,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	       .userDetailsService(userService)
 	       .passwordEncoder(passwordEncoder());
 	}
-    
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        
-    }
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {
