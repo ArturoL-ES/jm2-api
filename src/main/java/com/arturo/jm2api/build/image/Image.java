@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "build_images")
-@Data
+@Data //NOSONAR
 public class Image implements Serializable {
 
 	private static final long serialVersionUID = 1L;

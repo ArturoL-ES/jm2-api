@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "build_address")
-@Data
+@Data //NOSONAR
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;

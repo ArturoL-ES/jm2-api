@@ -2,7 +2,7 @@ package com.arturo.jm2api.build.dto;
 
 import lombok.Data;
 
-@Data
+@Data //NOSONAR
 public class BuildSearchFormDTO {
 
     private Integer type;

@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "equipments")
-@Data
+@Data //NOSONAR
 public class Equipment implements Serializable {
 
 	private static final long serialVersionUID = 1L;
