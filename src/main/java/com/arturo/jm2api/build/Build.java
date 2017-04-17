@@ -8,6 +8,7 @@ import com.arturo.jm2api.build.state.State;
 import com.arturo.jm2api.build.type.Type;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import lombok.Generated;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -20,6 +21,7 @@ import java.util.Set;
 @Cacheable
 @Table(name = "builds")
 @Data
+@Generated
 public class Build implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
