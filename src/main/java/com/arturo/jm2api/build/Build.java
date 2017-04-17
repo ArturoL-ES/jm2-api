@@ -19,8 +19,7 @@ import java.util.Set;
 @Entity
 @Cacheable
 @Table(name = "builds")
-@Data //NOSONAR
-public class Build implements Serializable {
+public @Data class Build implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -69,6 +68,7 @@ public class Build implements Serializable {
 	private Set<Equipment> equipments = new HashSet<>();
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "build")
+	//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private Set<Image> images = new HashSet<>();
 	
 	@Column(name = "identifier", nullable = false, length = 100)
