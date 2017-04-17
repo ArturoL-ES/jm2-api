@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class Jm2ApiApplicationTests {
 
 	@Test
-	public void contextLoads() {
-	}
+	public void contextLoads() { }
 
 }

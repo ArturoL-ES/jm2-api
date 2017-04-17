@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -74,6 +75,37 @@ public class ErrorTest {
         error.setTimestamp(System.currentTimeMillis());
 
         assertNotNull(error.getTimestamp());
+    }
+
+    @Test
+    public void testEquals() throws Exception {
+        Error error1 = new Error();
+        error1.setCode(code);
+        error1.setMessage(message);
+        Error error2 = new Error();
+        error2.setCode(code);
+        error2.setMessage(message);
+
+        assertEquals(error1, error1);
+        assertNotEquals(error1, "error1");
+        assertNotEquals(error1, null);
+
+        assertEquals(error1, error2);
+    }
+
+    @Test
+    public void testHashCode() throws Exception {
+        Error error1 = new Error();
+        error1.setCode(code);
+        error1.setMessage(message);
+        Error error2 = new Error();
+        error2.setCode(code);
+        error2.setMessage(message);
+
+        int hashcode1 = error1.hashCode();
+        int hashcode2 = error2.hashCode();
+
+        assertEquals(hashcode1, hashcode2);
     }
 
 }
