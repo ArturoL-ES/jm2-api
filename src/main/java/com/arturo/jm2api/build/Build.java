@@ -7,6 +7,8 @@ import com.arturo.jm2api.build.image.Image;
 import com.arturo.jm2api.build.state.State;
 import com.arturo.jm2api.build.type.Type;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Builder;
+import lombok.Data;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -18,6 +20,7 @@ import java.util.Set;
 @Entity
 @Cacheable
 @Table(name = "builds")
+@Data
 public class Build implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -67,97 +70,9 @@ public class Build implements Serializable {
 	private Set<Equipment> equipments = new HashSet<>();
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "build")
-	//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private Set<Image> images = new HashSet<>();
 	
 	@Column(name = "identifier", nullable = false, length = 100)
 	private String identifier;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Float getPrice() {
-		return price;
-	}
-
-	public void setPrice(Float price) {
-		this.price = price;
-	}
-
-	public String getCurrency() {
-		return currency;
-	}
-
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public State getState() {
-		return state;
-	}
-
-	public void setState(State state) {
-		this.state = state;
-	}
-
-	public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
-		this.type = type;
-	}
-
-	public Set<Feature> getFeatures() {
-		return features;
-	}
-
-	public void setFeatures(Set<Feature> features) {
-		this.features = features;
-	}
-
-	public Set<Equipment> getEquipments() {
-		return equipments;
-	}
-
-	public void setEquipments(Set<Equipment> equipments) {
-		this.equipments = equipments;
-	}
-
-	public Set<Image> getImages() {
-		return images;
-	}
-
-	public void setImages(Set<Image> images) {
-		this.images = images;
-	}
-
-	public String getIdentifier() {
-		return identifier;
-	}
-
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 }

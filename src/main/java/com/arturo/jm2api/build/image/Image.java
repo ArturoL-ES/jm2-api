@@ -1,12 +1,14 @@
 package com.arturo.jm2api.build.image;
 
 import com.arturo.jm2api.build.Build;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "build_images")
+@Data
 public class Image implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -22,29 +24,5 @@ public class Image implements Serializable {
 	
 	@Column(name = "path", nullable = false, length = 60)
 	private String path;
-
-	public Integer getIdImage() {
-		return idImage;
-	}
-
-	public void setIdImage(Integer idImage) {
-		this.idImage = idImage;
-	}
-
-	public Build getBuild() {
-		return build;
-	}
-
-	public void setBuild(Build build) {
-		this.build = build;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
 
 }

@@ -18,8 +18,8 @@ public class BuildSearchFormDTOTest {
     private Integer type = 1;
     private String town = "TOWN";
     private String country = "COUNTRY";
-    private Integer priceMin = 1;
-    private Integer priceMax = 2;
+    private Float priceMin = 1f;
+    private Float priceMax = 2f;
 
     @Before
     public void setUp() throws Exception {
@@ -91,7 +91,7 @@ public class BuildSearchFormDTOTest {
 
     @Test
     public void setPriceMin() throws Exception {
-        Integer priceMin = 100;
+        Float priceMin = 100f;
         dto.setPriceMin(priceMin);
 
         assertEquals(priceMin, dto.getPriceMin());
@@ -104,7 +104,7 @@ public class BuildSearchFormDTOTest {
 
     @Test
     public void setPriceMax() throws Exception {
-        Integer priceMax = 200;
+        Float priceMax = 200f;
         dto.setPriceMax(priceMax);
 
         assertEquals(priceMax, dto.getPriceMax());

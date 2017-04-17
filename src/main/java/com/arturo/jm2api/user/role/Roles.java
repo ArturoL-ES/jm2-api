@@ -1,6 +1,6 @@
 package com.arturo.jm2api.user.role;
 
-public class Roles {
+public final class Roles {
     
     public static final String ADMIN = "ADMIN";
     public static final String USER = "USER";

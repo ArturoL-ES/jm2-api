@@ -12,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Arrays;
@@ -46,16 +48,18 @@ public class BuildControllerTest {
 
     @Test
     public void update() throws Exception {
+        ResponseEntity<Build> expeted = new ResponseEntity<>(build, HttpStatus.CREATED);
         Mockito.when(buildService.updateBuild(build)).thenReturn(build);
 
-        assertEquals(build, buildController.update(build));
+        assertEquals(expeted, buildController.update(build));
     }
 
     @Test
     public void save() throws Exception {
+        ResponseEntity<Build> expeted = new ResponseEntity<>(build, HttpStatus.CREATED);
         Mockito.when(buildService.saveBuild(build)).thenReturn(build);
 
-        assertEquals(build, buildController.save(build));
+        assertEquals(expeted, buildController.save(build));
     }
     
     

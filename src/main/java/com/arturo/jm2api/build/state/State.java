@@ -1,10 +1,13 @@
 package com.arturo.jm2api.build.state;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "states")
+@Data
 public class State implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -16,21 +19,5 @@ public class State implements Serializable {
 	
 	@Column(name = "valueState", nullable = false, length = 16)
 	private String valueState;
-
-	public Integer getIdState() {
-		return idState;
-	}
-
-	public void setIdState(Integer idState) {
-		this.idState = idState;
-	}
-
-	public String getValueState() {
-		return valueState;
-	}
-
-	public void setValueState(String valueState) {
-		this.valueState = valueState;
-	}
 	
 }

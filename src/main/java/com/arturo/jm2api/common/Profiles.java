@@ -1,6 +1,6 @@
 package com.arturo.jm2api.common;
 
-public class Profiles {
+public final class Profiles {
 
     public static final String DEVELOPMENT = "development";
     public static final String PRODUCTION = "production";

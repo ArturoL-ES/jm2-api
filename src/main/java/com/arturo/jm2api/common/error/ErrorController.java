@@ -10,7 +10,7 @@ public class ErrorController {
     
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Error> error(RuntimeException exception) {
-        
+
         if (exception instanceof CustomException) {
             CustomException customException = (CustomException) exception;
             Error error = new Error();

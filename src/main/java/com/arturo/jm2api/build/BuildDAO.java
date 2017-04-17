@@ -11,17 +11,18 @@ import org.springframework.data.jpa.repository.Query;
 public interface BuildDAO extends JpaRepository<Build, Long> {
 
     @Query("SELECT build FROM Build build WHERE " +
-            "build.type.id = :type " +
-            "AND build.state.id = :state " +
-            "AND build.address.town = :town " +
-            "AND build.address.country = :country " +
-            "AND build.price BETWEEN :priceMin AND :priceMax")
+            "(?1 IS NULL OR build.type.id = ?1) " +
+            "AND (?2 IS NULL OR build.state.id = ?2) " +
+            "AND (?3 IS NULL OR build.address.town = ?3) " +
+            "AND (?4 IS NULL OR build.address.country = ?4) " +
+            "AND (?5 IS NULL OR build.price >= ?5) " +
+            "AND (?6 IS NULL OR build.price <= ?6)")
     Page<Build> findBySearchForm(Integer type,
                                  Integer state,
                                  String town,
                                  String country,
-                                 Integer priceMin,
-                                 Integer priceMax,
+                                 Float priceMin,
+                                 Float priceMax,
                                  Pageable page);
 
 }

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -29,18 +31,19 @@ public class BuildController {
     }
     
     @RequestMapping(value = "", method = RequestMethod.PUT)
-    public Build update(@ModelAttribute Build build) {
-        return buildService.updateBuild(build);
+    public ResponseEntity<Build> update(@ModelAttribute Build build) {
+        return new ResponseEntity<>(buildService.updateBuild(build), HttpStatus.CREATED);
     }
     
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Build save(@ModelAttribute Build build) {
-        return buildService.saveBuild(build);
+    public ResponseEntity<Build> save(@ModelAttribute Build build) {
+        return new ResponseEntity<>(buildService.saveBuild(build), HttpStatus.CREATED);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Long id) {
     	buildService.deleteBuild(id);
+    	return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
 }
