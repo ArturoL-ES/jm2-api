@@ -273,11 +273,42 @@ public class BuildTest {
 
     @Test
     public void equals_NonEqualBuild_ReturnTrue() {
-        Build build1 = new Build();
         Build build2 = new Build();
-        build1.setId(1L);
 
-        boolean isEquals = build1.equals(build2);
+        Build build = new Build();
+        build.setId(id);
+        build.setPrice(price);
+        build.setCurrency(currency);
+        build.setDescription(descripcion);
+
+        state = new State();
+        state.setIdState(1);
+        state.setValueState("TEST_STATE");
+        build.setState(state);
+
+        type = new Type();
+        type.setIdType(1);
+        type.setValueType("TEST_TYPE");
+        build.setType(type);
+
+        address = new Address();
+        build.setAddress(address);
+
+        Feature feature = new Feature();
+        features.add(feature);
+        build.setFeatures(features);
+
+        Equipment equipment = new Equipment();
+        equipments.add(equipment);
+        build.setEquipments(equipments);
+
+        Image image = new Image();
+        images.add(image);
+        build.setImages(images);
+
+        build.setIdentifier(identifier);
+
+        boolean isEquals = build.equals(build2);
 
         assertThat(isEquals, is(Boolean.FALSE));
     }
