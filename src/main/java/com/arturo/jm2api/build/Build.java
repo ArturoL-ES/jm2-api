@@ -19,7 +19,6 @@ import java.util.Set;
 @Entity
 @Cacheable
 @Table(name = "builds")
-@SuppressWarnings("all")
 public @Data class Build implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

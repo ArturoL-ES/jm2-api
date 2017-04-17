@@ -26,6 +26,10 @@
 		<langs.version>2.6</langs.version>
 		<mail.version>1.4.7</mail.version>
 		<lombok.version>1.16.16</lombok.version>
+
+		<sonar.coverage.exclusions>
+			**/com/arturo/jm2api/**/Build.java
+		</sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
