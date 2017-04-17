@@ -2,7 +2,6 @@ package com.arturo.jm2api.build.equipment;
 
 import com.arturo.jm2api.build.Build;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +10,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "equipments")
-@Data //NOSONAR
 public class Equipment implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -27,5 +25,29 @@ public class Equipment implements Serializable {
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "equipments")
     @JsonBackReference
 	private Set<Build> builds = new HashSet<>();
+
+	public Integer getIdEquipment() {
+		return idEquipment;
+	}
+
+	public void setIdEquipment(Integer idEquipment) {
+		this.idEquipment = idEquipment;
+	}
+
+	public String getValueEquiment() {
+		return valueEquiment;
+	}
+
+	public void setValueEquiment(String valueEquiment) {
+		this.valueEquiment = valueEquiment;
+	}
+
+	public Set<Build> getBuilds() {
+		return builds;
+	}
+
+	public void setBuilds(Set<Build> builds) {
+		this.builds = builds;
+	}
 	
 }

@@ -7,7 +7,6 @@ import com.arturo.jm2api.build.image.Image;
 import com.arturo.jm2api.build.state.State;
 import com.arturo.jm2api.build.type.Type;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -19,7 +18,7 @@ import java.util.Set;
 @Entity
 @Cacheable
 @Table(name = "builds")
-public @Data class Build implements Serializable {
+public class Build implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -74,4 +73,139 @@ public @Data class Build implements Serializable {
 	@Column(name = "identifier", nullable = false, length = 100)
 	private String identifier;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Float getPrice() {
+		return price;
+	}
+
+	public void setPrice(Float price) {
+		this.price = price;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public Set<Feature> getFeatures() {
+		return features;
+	}
+
+	public void setFeatures(Set<Feature> features) {
+		this.features = features;
+	}
+
+	public Set<Equipment> getEquipments() {
+		return equipments;
+	}
+
+	public void setEquipments(Set<Equipment> equipments) {
+		this.equipments = equipments;
+	}
+
+	public Set<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(Set<Image> images) {
+		this.images = images;
+	}
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (!(o instanceof Build))
+			return false;
+
+		Build build = (Build) o;
+
+		if (getId() != null ? !getId().equals(build.getId()) : build.getId() != null)
+			return false;
+		if (getPrice() != null ? !getPrice().equals(build.getPrice()) : build.getPrice() != null)
+			return false;
+		if (getCurrency() != null ? !getCurrency().equals(build.getCurrency()) : build.getCurrency() != null)
+			return false;
+		if (getDescription() != null ? !getDescription().equals(build.getDescription()) : build.getDescription() != null)
+			return false;
+		if (getState() != null ? !getState().equals(build.getState()) : build.getState() != null)
+			return false;
+		if (getType() != null ? !getType().equals(build.getType()) : build.getType() != null)
+			return false;
+		if (getAddress() != null ? !getAddress().equals(build.getAddress()) : build.getAddress() != null)
+			return false;
+		if (getFeatures() != null ? !getFeatures().equals(build.getFeatures()) : build.getFeatures() != null)
+			return false;
+		if (getEquipments() != null ? !getEquipments().equals(build.getEquipments()) : build.getEquipments() != null)
+			return false;
+		if (getImages() != null ? !getImages().equals(build.getImages()) : build.getImages() != null)
+			return false;
+		return getIdentifier() != null ? getIdentifier().equals(build.getIdentifier()) : build.getIdentifier() == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = getId() != null ? getId().hashCode() : 0;
+		result = 31 * result + (getPrice() != null ? getPrice().hashCode() : 0);
+		result = 31 * result + (getCurrency() != null ? getCurrency().hashCode() : 0);
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getState() != null ? getState().hashCode() : 0);
+		result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+		result = 31 * result + (getAddress() != null ? getAddress().hashCode() : 0);
+		result = 31 * result + (getFeatures() != null ? getFeatures().hashCode() : 0);
+		result = 31 * result + (getEquipments() != null ? getEquipments().hashCode() : 0);
+		result = 31 * result + (getImages() != null ? getImages().hashCode() : 0);
+		result = 31 * result + (getIdentifier() != null ? getIdentifier().hashCode() : 0);
+		return result;
+	}
 }

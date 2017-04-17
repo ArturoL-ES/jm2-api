@@ -16,7 +16,9 @@ import org.springframework.test.context.ActiveProfiles;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 @ActiveProfiles(Profiles.DEVELOPMENT)
@@ -227,6 +229,69 @@ public class BuildTest {
         build.setIdentifier(identifier);
 
         assertEquals(identifier, build.getIdentifier());
+    }
+
+    @SuppressWarnings("EqualsWithItself")
+    @Test
+    public void equals_SameBuild_ReturnTrue() {
+        Build build = new Build();
+
+        boolean isEquals = build.equals(build);
+
+        assertThat(isEquals, is(Boolean.TRUE));
+    }
+
+    @Test
+    public void equals_EqualBuild_ReturnTrue() {
+        Build build1 = new Build();
+        Build build2 = new Build();
+
+        boolean isEquals = build1.equals(build2);
+
+        assertThat(isEquals, is(Boolean.TRUE));
+    }
+
+    @SuppressWarnings("ObjectEqualsNull")
+    @Test
+    public void equals_Null_ReturnFalse() {
+        Build build = new Build();
+
+        boolean isEquals = build.equals(null);
+
+        assertThat(isEquals, is(Boolean.FALSE));
+    }
+
+    @SuppressWarnings("EqualsBetweenInconvertibleTypes")
+    @Test
+    public void equals_AnotherType_ReturnFalse() {
+        Build build1 = new Build();
+
+        boolean isEquals = build1.equals("build");
+
+        assertThat(isEquals, is(Boolean.FALSE));
+    }
+
+    @Test
+    public void equals_NonEqualBuild_ReturnTrue() {
+        Build build1 = new Build();
+        Build build2 = new Build();
+        build1.setId(1L);
+
+        boolean isEquals = build1.equals(build2);
+
+        assertThat(isEquals, is(Boolean.FALSE));
+    }
+
+    @Test
+    public void hashCode_usersEqualsHaveSameHash() {
+        Build build1 = new Build();
+        Build build2 = new Build();
+
+        int hash1 = build1.hashCode();
+        int hash2 = build2.hashCode();
+
+        assertThat(build1, equalTo(build2));
+        assertThat(hash1, equalTo(hash2));
     }
 
 }

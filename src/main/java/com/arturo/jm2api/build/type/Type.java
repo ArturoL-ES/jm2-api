@@ -1,13 +1,10 @@
 package com.arturo.jm2api.build.type;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "types")
-@Data //NOSONAR
 public class Type implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -19,5 +16,21 @@ public class Type implements Serializable {
 	
 	@Column(name = "valueType", nullable = false, length = 16)
 	private String valueType;
+
+	public Integer getIdType() {
+		return idType;
+	}
+
+	public void setIdType(Integer idType) {
+		this.idType = idType;
+	}
+
+	public String getValueType() {
+		return valueType;
+	}
+
+	public void setValueType(String valueType) {
+		this.valueType = valueType;
+	}
 
 }
