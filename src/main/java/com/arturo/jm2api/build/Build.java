@@ -7,7 +7,6 @@ import com.arturo.jm2api.build.image.Image;
 import com.arturo.jm2api.build.state.State;
 import com.arturo.jm2api.build.type.Type;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
